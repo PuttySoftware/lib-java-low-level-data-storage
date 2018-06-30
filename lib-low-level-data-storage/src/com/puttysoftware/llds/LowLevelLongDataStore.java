@@ -5,14 +5,14 @@ All support is handled via the GitHub repository: https://github.com/wrldwzrd89/
  */
 package com.puttysoftware.llds;
 
-public final class LowLevelNumberDataStore implements Cloneable {
+public final class LowLevelLongDataStore implements Cloneable {
     // Fields
-    private final int[] dataStore;
+    private final long[] dataStore;
     private final int[] dataShape;
     private final int[] interProd;
 
     // Constructor
-    public LowLevelNumberDataStore(final int... shape) {
+    public LowLevelLongDataStore(final int... shape) {
         this.dataShape = shape;
         this.interProd = new int[shape.length];
         int product = 1;
@@ -20,7 +20,7 @@ public final class LowLevelNumberDataStore implements Cloneable {
             this.interProd[x] = product;
             product *= shape[x];
         }
-        this.dataStore = new int[product];
+        this.dataStore = new long[product];
     }
 
     // Methods
@@ -42,7 +42,7 @@ public final class LowLevelNumberDataStore implements Cloneable {
 
     @Override
     public Object clone() {
-        final LowLevelNumberDataStore copy = new LowLevelNumberDataStore(
+        final LowLevelLongDataStore copy = new LowLevelLongDataStore(
                 this.dataShape);
         System.arraycopy(this.dataStore, 0, copy.dataStore, 0,
                 this.dataStore.length);
@@ -53,17 +53,17 @@ public final class LowLevelNumberDataStore implements Cloneable {
         return this.dataShape;
     }
 
-    public int getCell(final int... loc) {
+    public long getCell(final int... loc) {
         final int aloc = this.ravelLocation(loc);
         return this.dataStore[aloc];
     }
 
-    public void setCell(final int obj, final int... loc) {
+    public void setCell(final long obj, final int... loc) {
         final int aloc = this.ravelLocation(loc);
         this.dataStore[aloc] = obj;
     }
     
-    public void fill(final int obj) {
+    public void fill(final long obj) {
         for (int x = 0; x < this.dataStore.length; x++) {
             this.dataStore[x] = obj;
         }
