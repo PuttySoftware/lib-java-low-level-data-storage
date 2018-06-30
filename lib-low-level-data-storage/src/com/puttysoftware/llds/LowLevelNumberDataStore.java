@@ -62,4 +62,10 @@ public final class LowLevelNumberDataStore implements Cloneable {
         final int aloc = this.ravelLocation(loc);
         this.dataStore[aloc] = obj;
     }
+    
+    public void fill(final long obj) {
+        for (int x = 0; x < this.dataStore.length; x++) {
+            this.dataStore[x] = obj;
+        }
+    }
 }
