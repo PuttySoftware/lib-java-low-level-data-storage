@@ -3,7 +3,7 @@ Licensed under Apache 2.0. See the LICENSE file for details.
 
 All support is handled via the GitHub repository: https://github.com/wrldwzrd89/lib-java-low-level-data-storage
  */
-package com.puttysoftware.llds.ioutils;
+package com.puttysoftware.ioutils;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
